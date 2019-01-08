@@ -1,0 +1,9 @@
+{% extends 'v2/includes/header.html' %}
+
+{% block content %}
+
+    {% for data in fooddata %}
+    <p>name: {{ data.title }} and the price is {{ data.price }}</p>
+    {% endfor %}
+
+{% endblock %}

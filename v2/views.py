@@ -54,4 +54,5 @@ def testu(request):
 
 def show(request):
     s = FoodData.objects.all()
-    
+    context = {'fooddata': s}
+    return render(request, 'v2/foods.html' ,context=context)
