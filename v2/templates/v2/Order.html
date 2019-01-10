@@ -41,21 +41,14 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Spicy Burger<span class="badge badge-primary badge-pill"></span></td>
-                    <td>300</td>
-                    <td>Add to Cart</td>
-                  </tr>
-                  <tr>
-                    <td>Chicken Burger</td>
-                    <td>225</td>
-                    <td>Add to Cart</td>
-                  </tr>
-                  <tr>
-                    <td>Beef Burger</td>
-                    <td>350</td>
-                    <td>Add to Cart</td>
-                  </tr>
+                      {% for burger in burgers %}
+                          <tr>
+                          <td>{{ burger.title }}</td>
+                          <td>{{ burger.description }}</td>
+                          <td>{{ burger.price }}</td>
+                          </tr>
+                      {% endfor %}
+
                 </tbody>
               </table>
             </div>
@@ -70,21 +63,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Italian Pizza<span class="badge badge-primary badge-pill"></span></td>
-                    <td>400</td>
-                    <td>Add to Cart</td>
-                  </tr>
-                  <tr>
-                    <td>Cheese Max Pizza</td>
-                    <td>725</td>
-                    <td>Add to Cart</td>
-                  </tr>
-                  <tr>
-                    <td>Beef Pepperoni Pizza</td>
-                    <td>950</td>
-                    <td>Add to Cart</td>
-                  </tr>
+                  {% for burger in pizzas %}
+                          <tr>
+                          <td>{{ burger.title }}</td>
+                          <td>{{ burger.description }}</td>
+                          <td>{{ burger.price }}</td>
+                          </tr>
+                      {% endfor %}
                 </tbody>
               </table>
             </div>
@@ -99,21 +84,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Red Velvet<span class="badge badge-primary badge-pill"></span></td>
-                    <td>800</td>
-                    <td>Add to Cart</td>
-                  </tr>
-                  <tr>
-                    <td>Chocolate Chip Cake</td>
-                    <td>625</td>
-                    <td>Add to Cart</td>
-                  </tr>
-                  <tr>
-                    <td>Black Forest</td>
-                    <td>750</td>
-                    <td>Add to Cart</td>
-                  </tr>
+                  {% for burger in cakes %}
+                          <tr>
+                          <td>{{ burger.title }}</td>
+                          <td>{{ burger.description }}</td>
+                          <td>{{ burger.price }}</td>
+                          </tr>
+                      {% endfor %}
                 </tbody>
               </table>
             </div>
@@ -128,21 +105,13 @@
                   </tr>
                 </thead>
                 <tbody>
-                  <tr>
-                    <td>Cold Drinks 300ml<span class="badge badge-primary badge-pill"></span></td>
-                    <td>30</td>
-                    <td><a href="#">Add to Cart</a></td>
-                  </tr>
-                  <tr>
-                    <td>Crushers</td>
-                    <td>100</td>
-                    <td>Add to Cart</td>
-                  </tr>
-                  <tr>
-                    <td>MIlkshakes</td>
-                    <td>150</td>
-                    <td>Add to Cart</td>
-                  </tr>
+                  {% for burger in beverages %}
+                          <tr>
+                          <td>{{ burger.title }}</td>
+                          <td>{{ burger.description }}</td>
+                          <td>{{ burger.price }}</td>
+                          </tr>
+                      {% endfor %}
                 </tbody>
               </table>
             </div>

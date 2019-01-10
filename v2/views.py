@@ -49,10 +49,23 @@ def createuser(request):
         s.save()
         return HttpResponse('<h1>account created successfully</h1>')
 
-def testu(request):
-    return render(request, 'v2/user.html')
+def testu(request,uid):
+    userdata = User.objects.get(id=uid)
+    return render(request, 'v2/user.html', context={'data':userdata})
 
 def show(request):
     s = FoodData.objects.all()
     context = {'fooddata': s}
     return render(request, 'v2/foods.html' ,context=context)
+
+def orderview(request):
+    burgers = FoodData.objects.filter(category="Burger")
+    cakes = FoodData.objects.filter(category="Cake")
+    pizzas = FoodData.objects.filter(category="Pizza")
+    beverages = FoodData.objects.filter(category="Beverage")
+    context = {'burgers': burgers,
+               'cakes':cakes,
+               'pizzas':pizzas,
+               'beverages':beverages
+               }
+    return render(request,'v2/Order.html', context=context)

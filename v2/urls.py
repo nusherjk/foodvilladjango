@@ -26,8 +26,8 @@ urlpatterns = [
     path('contactus/', views.contact, name= 'contactus'),
     path('create/', views.createuser,name= 'post'),
     path('verfy/', views.loginverify, name='veryfy'),
-    path('u/', views.testu, name='u'),
-    path('show/', views.show,name='show'),
+    path('user/<int:uid>/', views.testu, name='u'),
+    path('order/', views.orderview,name='show'),
 
 
 
