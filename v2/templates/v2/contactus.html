@@ -5,14 +5,14 @@
   <meta charset="utf-8">
   {% load static %}
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="{% static 'home/CSS/bootstrap.min.css' %}" type="text/css">
-  <link rel="stylesheet" href="{% static 'home/CSS/font-awesome.min.css' %}" type="text/css">
-  <link rel="stylesheet" href="{% static 'home/CSS/theme.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'v2/CSS/bootstrap.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'v2/CSS/font-awesome.min.css' %}" type="text/css">
+  <link rel="stylesheet" href="{% static 'v2/CSS/theme.css' %}" type="text/css">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css" type="text/css">
   <link rel="stylesheet" href="https://v40.pingendo.com/assets/4.0.0/default/theme.css" type="text/css"> </head>
 
 <body>
-  <div class="py-5 text-white" style="background-image: url(&quot;{% static 'home/images/op1.jpg' %}&quot;);background-position:left center;">
+  <div class="py-5 text-white" style="background-image: url(&quot;{% static 'v2/images/op1.jpg' %}&quot;);background-position:left center;">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
@@ -25,13 +25,10 @@
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <form class="">
-            <div class="form-group"> <label>Full Name</label>
-              <input type="email" class="form-control" placeholder="Enter Full Name"> <small class="form-text text-muted">We'll never share your email with anyone else.</small> </div>
-            <div class="form-group"> <label>Email address</label>
-              <input type="email" class="form-control" placeholder="Enter email"> <small class="form-text text-muted">We'll never share your email with anyone else.</small> </div>
-            <div class="form-group"> <label>Comment</label>
-              <input type="textfield" class="form-control" placeholder="Comment"> </div>
+          <form class="" action="/submit/" method="POST">
+              {% csrf_token %}
+              {{ form.as_p }}
+
             <button type="submit" class="btn btn-primary">Submit</button>
           </form>
         </div>

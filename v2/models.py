@@ -21,3 +21,11 @@ class FoodData(models.Model):
 
     def __str__(self):
         return self.title
+
+class Complaints(models.Model):
+    full_name = models.CharField(max_length=50)
+    email = models.CharField(max_length=50)
+    complain = models.CharField(max_length=1000)
+
+    def __str__(self):
+        return self.email

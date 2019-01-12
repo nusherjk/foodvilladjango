@@ -25,9 +25,11 @@ urlpatterns = [
     path('about/', views.about, name= 'about'),
     path('contactus/', views.contact, name= 'contactus'),
     path('create/', views.createuser,name= 'post'),
-    path('verfy/', views.loginverify, name='veryfy'),
+    path('user/', views.loginverify, name='veryfy'),
     path('user/<int:uid>/', views.testu, name='u'),
     path('order/', views.orderview,name='show'),
+    path('submit/', views.contactonaction, name='submitted'),
+    path('logout/', views.logout, name='logout')
 
 
 

@@ -1,7 +1,7 @@
 from django.shortcuts import render
-from .forms import RegisterForm,LoginForm
-from .models import User, FoodData
-from django.http import HttpResponse
+from .forms import RegisterForm,LoginForm, ComplaintForm
+from .models import User, FoodData,Complaints
+from django.http import HttpResponse,HttpResponseRedirect
 
 
 # Create your views here.
@@ -19,8 +19,20 @@ def register(request):
     form = RegisterForm()
     return render(request, 'v2/register.html' , {'form':form})
 
+def contactonaction(request):
+    form = ComplaintForm(request.POST)
+    if form.is_valid():
+        fullname = form.cleaned_data['fullname']
+        email = form.cleaned_data['email']
+        comment = form.cleaned_data['comment']
+
+        s = Complaints(full_name=fullname,email=email,complain=comment)
+        s.save()
+    return HttpResponseRedirect('/contactus')
+
 def contact(request):
-    return render(request, 'v2/contactus.html')
+    form = ComplaintForm()
+    return render(request, 'v2/contactus.html', {'form':form})
 
 def about(request):
     return render(request, 'v2/about.html')
@@ -32,9 +44,20 @@ def loginverify(request):
         password = form.cleaned_data['password']
         s  = User.objects.get(email=username)
         if(s.password == password):
-            return HttpResponse('<h1>login successfull</h1>')
+            request.session['User.id'] = s.id
+            return testu(request,s.id)
         else:
             return HttpResponse('<h1>Username of password doesnt match</h1>')
+
+
+def logout(request):
+    try:
+        del request.session['User.id']
+    except KeyError:
+        return HttpResponse('<h1>Could not log out please try again </h1>')
+    return HttpResponseRedirect('/login')
+
+
 
 
 def createuser(request):
