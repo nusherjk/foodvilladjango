@@ -8,6 +8,8 @@ from django.http import HttpResponse,HttpResponseRedirect
 # fix loginverify & createuser
 
 
+
+
 def index(request):
     return render(request, 'v2/home.html')
 
@@ -44,15 +46,15 @@ def loginverify(request):
         password = form.cleaned_data['password']
         s  = User.objects.get(email=username)
         if(s.password == password):
-            request.session['User.id'] = s.id
-            return testu(request,s.id)
+            request.session['User_id'] = s.id
+            return testu(request)
         else:
-            return HttpResponse('<h1>Username of password doesnt match</h1>')
+            return HttpResponse('<h1>Username of password didn\'t match</h1>')
 
 
 def logout(request):
     try:
-        del request.session['User.id']
+        del request.session['User_id']
     except KeyError:
         return HttpResponse('<h1>Could not log out please try again </h1>')
     return HttpResponseRedirect('/login')
@@ -70,11 +72,13 @@ def createuser(request):
         address = form.cleaned_data['address']
         s = User(first_name=first_name,last_name=last_name,email=email,password=password,address=address)
         s.save()
-        return HttpResponse('<h1>account created successfully</h1>')
+        return HttpResponseRedirect('/login')
 
-def testu(request,uid):
-    userdata = User.objects.get(id=uid)
-    return render(request, 'v2/user.html', context={'data':userdata})
+def testu(request):
+    if request.session.has_key('User_id'):
+        uid = request.session['User_id']
+        userdata = User.objects.get(id=uid)
+        return render(request, 'v2/user.html', context={'data':userdata})
 
 def show(request):
     s = FoodData.objects.all()
@@ -82,13 +86,18 @@ def show(request):
     return render(request, 'v2/foods.html' ,context=context)
 
 def orderview(request):
-    burgers = FoodData.objects.filter(category="Burger")
-    cakes = FoodData.objects.filter(category="Cake")
-    pizzas = FoodData.objects.filter(category="Pizza")
-    beverages = FoodData.objects.filter(category="Beverage")
-    context = {'burgers': burgers,
-               'cakes':cakes,
-               'pizzas':pizzas,
-               'beverages':beverages
-               }
-    return render(request,'v2/Order.html', context=context)
+    if request.session.has_key('User_id'):
+        userid = request.session['User_id']
+        burgers = FoodData.objects.filter(category="Burger")
+        cakes = FoodData.objects.filter(category="Cake")
+        pizzas = FoodData.objects.filter(category="Pizza")
+        beverages = FoodData.objects.filter(category="Beverage")
+
+        context = {'userid':userid,
+                    'burgers': burgers,
+                   'cakes':cakes,
+                   'pizzas':pizzas,
+                   'beverages':beverages
+                   }
+        return render(request,'v2/Order.html', context=context)
+    
