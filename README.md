@@ -2,9 +2,12 @@
 this was my database management course project but only difference is its django... why? because I can
 
 requirements:
-# python 3.5/2.7
-# Django 2.1
-# Database: SQLite3
+
+ python 3.5/2.7
+ 
+ Django 2.1
+ 
+ Database: SQLite3
 
 to run server simply open command prompt and in the project base directory and type
 python manage.py runserver
