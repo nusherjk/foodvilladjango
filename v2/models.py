@@ -29,5 +29,6 @@ class Complaints(models.Model):
 
     def __str__(self):
         return self.email
-class Cart(models.Model):
-    Foodtitile = models.ForeignKey(FoodData.title)
+'''class Cart(models.Model):
+    Foodtitile = models.ForeignKey(FoodData.title, on_delete= models.CASCADE)
+    '''
