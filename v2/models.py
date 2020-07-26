@@ -29,3 +29,5 @@ class Complaints(models.Model):
 
     def __str__(self):
         return self.email
+class Cart(models.Model):
+    Foodtitile = models.ForeignKey(FoodData.title)

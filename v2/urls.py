@@ -13,23 +13,23 @@ Including another URLconf
     1. Import the include() function: from django.urls import include, path
     2. Add a URL to urlpatterns:  path('blog/', include('blog.urls'))
 """
-from . import views
+from .views import v2
 from django.urls import path
 
 
 
 urlpatterns = [
-    path('', views.index, name='index'),
-    path('register/' ,views.register, name='register'),
-    path('login/', views.login, name= 'login'),
-    path('about/', views.about, name= 'about'),
-    path('contactus/', views.contact, name= 'contactus'),
-    path('create/', views.createuser,name= 'post'),
-    path('checking/', views.loginverify, name='veryfy'),
-    path('user/', views.testu, name='u'),
-    path('order/', views.orderview,name='show'),
-    path('submit/', views.contactonaction, name='submitted'),
-    path('logout/', views.logout, name='logout')
+    path('', v2.index, name='index'),
+    path('register/' ,v2.register, name='register'),
+    path('login/', v2.login, name= 'login'),
+    path('about/', v2.about, name= 'about'),
+    path('contactus/', v2.contact, name= 'contactus'),
+    path('create/', v2.createuser,name= 'post'),
+    path('checking/', v2.loginverify, name='veryfy'),
+    path('user/', v2.testu, name='u'),
+    path('order/', v2.orderview,name='show'),
+    path('submit/', v2.contactonaction, name='submitted'),
+    path('logout/', v2.logout, name='logout')
 
 
 

@@ -1,12 +1,14 @@
 
 {% extends 'v2/includes/header.html' %}
 {% load static %} }
+
+
 {% block content %}
   <div class="py-5 bg-gradient" style="background-image: url(&quot;{% static 'v2/images/Chicken-Burger.jpg' %}&quot;);background-position:left center;">
     <div class="container">
       <div class="row">
         <div class="col-md-12">
-          <h1 class="">{{ userid }} Select a Catagory</h1>
+          <h1 class=""> Select a Catagory</h1>
         </div>
       </div>
     </div>
@@ -32,12 +34,14 @@
           <div class="tab-content mt-2">
             <div class="tab-pane fade show active" id="tabone" role="tabpanel">
               <p class="">Different catagorys of this food type</p>
+
               <table class="table">
                 <thead>
                   <tr>
                     <th>Item</th>
-                    <th>Price</th>
-                    <th></th>
+                    <th>Description</th>
+                      <th>Price</th>
+                    <th>Add To Cart</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -46,6 +50,10 @@
                           <td>{{ burger.title }}</td>
                           <td>{{ burger.description }}</td>
                           <td>{{ burger.price }}</td>
+                          <td><button>Add to cart</button></td>
+
+
+
                           </tr>
                       {% endfor %}
 
@@ -58,18 +66,24 @@
                 <thead>
                   <tr>
                     <th>Item</th>
-                    <th>Price</th>
-                    <th></th>
+                    <th>Description</th>
+                      <th>Price</th>
+                    <th>Add To Cart</th>
                   </tr>
                 </thead>
                 <tbody>
+
                   {% for burger in pizzas %}
                           <tr>
                           <td>{{ burger.title }}</td>
                           <td>{{ burger.description }}</td>
                           <td>{{ burger.price }}</td>
+                          <td><button>Add to cart</button></td>
+
                           </tr>
+
                       {% endfor %}
+
                 </tbody>
               </table>
             </div>
@@ -79,8 +93,9 @@
                 <thead>
                   <tr>
                     <th>Item</th>
-                    <th>Price</th>
-                    <th></th>
+                    <th>Description</th>
+                      <th>Price</th>
+                    <th>Add To Cart</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -89,6 +104,7 @@
                           <td>{{ burger.title }}</td>
                           <td>{{ burger.description }}</td>
                           <td>{{ burger.price }}</td>
+                          <td><button>Add to cart</button></td>
                           </tr>
                       {% endfor %}
                 </tbody>
@@ -100,16 +116,19 @@
                 <thead>
                   <tr>
                     <th>Item</th>
-                    <th>Price</th>
-                    <th></th>
+                    <th>Description</th>
+                      <th>Price</th>
+                    <th>Add To Cart</th>
                   </tr>
                 </thead>
                 <tbody>
+
                   {% for burger in beverages %}
                           <tr>
                           <td>{{ burger.title }}</td>
                           <td>{{ burger.description }}</td>
                           <td>{{ burger.price }}</td>
+                          <td><button>Add to cart</button></td>
                           </tr>
                       {% endfor %}
                 </tbody>
@@ -120,6 +139,7 @@
       </div>
     </div>
   </div>
+    <h1> {{ item }}</h1>
   <script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
   <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
