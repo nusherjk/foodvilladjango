@@ -1,7 +1,7 @@
 # foodvilladjango
 this was my database management course project but only difference is its django... why? because I can
 
-requirements:
+## Requirements:
 
  python 3.5/2.7
  
