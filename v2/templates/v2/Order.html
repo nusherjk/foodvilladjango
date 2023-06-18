@@ -41,7 +41,7 @@
                     <th>Item</th>
                     <th>Description</th>
                       <th>Price</th>
-                    <th>Add To Cart</th>
+                    <th >Add To Cart</th>
                   </tr>
                 </thead>
                 <tbody>
@@ -50,7 +50,7 @@
                           <td>{{ burger.title }}</td>
                           <td>{{ burger.description }}</td>
                           <td>{{ burger.price }}</td>
-                          <td><button>Add to cart</button></td>
+                              <td><a href="/add_to_cart/{{ burger.id }}">add to cart</a></td>
 
 
 
@@ -78,7 +78,9 @@
                           <td>{{ burger.title }}</td>
                           <td>{{ burger.description }}</td>
                           <td>{{ burger.price }}</td>
-                          <td><button>Add to cart</button></td>
+{#                          <td><button >Add to cart</button></td>#}
+                              <td><a href="/add_to_cart/{{ burger.id }}">add to cart</a></td>
+                          <td></td>
 
                           </tr>
 
@@ -104,7 +106,7 @@
                           <td>{{ burger.title }}</td>
                           <td>{{ burger.description }}</td>
                           <td>{{ burger.price }}</td>
-                          <td><button>Add to cart</button></td>
+                          <td><a href="/add_to_cart/{{ burger.id }}">add to cart</a></td>
                           </tr>
                       {% endfor %}
                 </tbody>

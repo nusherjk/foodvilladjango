@@ -1,6 +1,23 @@
 {% extends 'v2/includes/header.html' %} }
 {% block content %}
+{#{{ request.session }}#}
+    {% if request.session.cart is not None %}
 
+            <table>
+                <th>
+                    <tr>Item</tr>
+                    <tr>Quantity</tr>
+                </th>
+            {{ request.session.cart }}
+                {% for item in request.session.cart %}
+                <td>
+                    <tr>{{ item.item }}</tr>
+                    <tr>{{ item.quantity }}</tr>
+                </td>
+            {% endfor %}
+            </table>
+
+    {%  endif %}
 
 
 {% endblock %}
